@@ -4,7 +4,6 @@ const app = express();
 require("dotenv").config();
 require("./src/config/database").connect();
 
-const jwt = require("jsonwebtoken");
 const verifyToken = require("./src/middleware/auth");
 
 app.use(express.json());

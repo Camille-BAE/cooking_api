@@ -14,6 +14,14 @@ const createUser = async (req, res) => {
     res.send({message: "your new !", token})
   } catch (error) {
     console.error(error);
-  }
-}
+  };
+};
+
+const getAllUsers = (req, res) => {
+  User.find()
+    .then((allUsers) => res.status(200).json({ allUsers }))
+    .catch((error) => res.status(400).json({ error }));
+};
+
  module.exports = createUser;
+ module.exports = getAllUsers;
