@@ -2,18 +2,18 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
-require("./config/database").connect();
+require("./src/config/database").connect();
 
 const jwt = require("jsonwebtoken");
-const verifyToken = require("./middleware/auth");
+const verifyToken = require("./src/middleware/auth");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ROUTES PINCRIPALES
-const courseRouteur = require("./routes/courseRouter");
-const subscriberRouteur = require("./routes/subscriberRouter");
-const userRouteur = require("./routes/userRouter");
+const courseRouteur = require("./src/routes/courseRouter");
+const subscriberRouteur = require("./src/routes/subscriberRouter");
+const userRouteur = require("./src/routes/userRouter");
 
 app.use("/courses", courseRouteur);
 app.use("/subscribers", subscriberRouteur);
