@@ -11,11 +11,11 @@ const createSubscriber = async (req, res) => {
   };
 };
 
-const findSub = (req, res) => {
+const getAllSub = (req, res) => {
   Subscriber.find()
     .then((allSubscribers) => res.status(200).json({ allSubscribers }))
     .catch((error) => res.status(400).json({ error }));
 }
 
 module.exports = createSubscriber;
-module.exports = findSub;
+module.exports = getAllSub;
