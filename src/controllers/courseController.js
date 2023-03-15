@@ -1,5 +1,6 @@
 const Course = require("../models/courseModel");
 
+// créer un course
 const newCourse = async (req, res) => {
   try {
     const newCourse = await new Course(req.body);
@@ -10,12 +11,14 @@ const newCourse = async (req, res) => {
   };
 };
 
+// voir tous les courses
 const getAllCourses = (req, res) => {
   Course.find()
     .then((allCourses) => res.status(200).json({ allCourses }))
     .catch((error) => res.status(400).json({ error }));
 };
 
+// trouver par id
 const coursesId = async (req, res) => {
   try {
     const oneCourse = await Course.findById(req.params.id);
