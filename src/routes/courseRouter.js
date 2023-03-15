@@ -23,7 +23,7 @@ courseRouteur.get("/", (req, res) => {
 // Problème : Ne me revoie que un seul et même course même quand je change l'id dans postman
 courseRouteur.get("/:id", async (req, res) => {
   try {
-    const oneCourse = await Course.findOne();
+    const oneCourse = await Course.findById(req.params.id);
     res.send(oneCourse);
   } catch (error) {
     console.error(error);

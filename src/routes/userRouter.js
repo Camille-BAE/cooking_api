@@ -1,20 +1,18 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const userRouteur = require("express").Router();
-const User = require("../models/userModel");
+const createUser = require('../controllers/userController')
 
 // Créer un User
-userRouteur.post("/create", async (req, res) => {
-  try {
-    const newUser = await new User(req.body);
-    // note à moi-même : il faudra Hasher le password avec bcrypt
+// userRouteur.post("/create", async (req, res) => {
+//   try {
+//     const newUser = await new User(req.body);
+//     newUser.save();
+//     res.send(newUser);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
-    newUser.save();
-    res.send(newUser);
-  } catch (error) {
-    console.error(error);
-  }
-});
+userRouteur.post("/create", createUser);
 
 // Voir tous les Users
 userRouteur.get("/", (req, res) => {
